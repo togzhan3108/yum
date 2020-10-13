@@ -1,0 +1,22 @@
+<br>
+<br>
+<main id="main">
+  <br>
+  <!-- ======= Whu Us Section ======= -->
+  <section id="why-us" class="why-us">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>{{title}}<span>YUM</span></h2>
+        <p>You can share your own recipes with others</p>
+      </div>
+      <div class="text-center"><button (click)="toggle()" type="submit">More...</button></div>
+      <br>
+      <!-- ======= Structural Directive ======= -->
+      <why-us [title]="title "*ngIf="displayChild" [message]="'Error'"></why-us>
+    </div>
+  </section>
+  <specials></specials>
+
+</main>
+
