@@ -1,0 +1,9 @@
+{
+  "recipes": [
+    {
+      "id": 1,
+      "name": "Cake",
+      "method": "Cook with love"
+    }
+  ]
+}

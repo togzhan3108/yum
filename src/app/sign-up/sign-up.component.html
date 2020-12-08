@@ -2,24 +2,26 @@
       <h2><span>Sign</span> Up</h2>
       <p>Join us</p>
     </div>
+    <form #myForm="ngForm" novalidate (ngSubmit)="onSubmit(myForm)">
     <div class="container mt-3">
       <div class="form-row">
         <div class="col-md-6 form-group">
-          <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+          <input type="text" name="firstname" ngModel required class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
           <div class="validate"></div>
         </div>
         <div class="col-md-6 form-group">
-          <input type="text" class="form-control" name="surname" id="surname" placeholder="Your Surname" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+          <input type="text" class="form-control" name="lastname" ngModel required id="surname" placeholder="Your Surname" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
           <div class="validate"></div>
         </div>
       </div>
       <div class="form-group">
-        <input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Please enter valid email" />
+        <input type="email" class="form-control" name="email" ngModel required email id="email" placeholder="Email" data-rule="email" data-msg="Please enter valid email" />
         <div class="validate"></div>
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" name="password" id="subject" placeholder="Password" data-rule="password" data-msg="Please enter at least 6 chars" />
+        <input type="password" class="form-control" name="password" ngModel required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$" id="subject" placeholder="Password" data-rule="password" data-msg="Please enter at least 6 chars" />
         <div class="validate"></div>
       </div>
-      <div class="text-center"><button type="submit">Sign up</button></div>
+      <div class="text-center"><button type="submit" [disabled]="myForm.invalid">Sign up</button></div>
     </div>
+    </form>

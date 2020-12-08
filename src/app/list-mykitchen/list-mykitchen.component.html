@@ -1,0 +1,54 @@
+<br>
+<br>
+<main id="main">
+  <!-- ======= My kitchen Section ======= -->
+  <section id="specials" class="specials">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Check own <span>Kitchen</span></h2>
+        <p>delight family with various delicious dishes</p>
+      </div>
+
+      <div class="container custom-container-2">
+
+        <!-- Show it when there is no employee -->
+        <div class="no-data text-center" *ngIf="Recipe.length == 0">
+          <p>There is no recipe added yet!</p>
+          <button class="btn btn-outline-primary" routerLink="/create-mykitchen">Add Recipe</button>
+        </div>
+
+        <!-- Employees list table, it hides when there is no employee -->
+        <div *ngIf="Recipe.length !== 0">
+          <h3 class="mb-3 text-center">Recipes List</h3>
+
+          <div class="col-md-12">
+            <table class="table table-bordered">
+              <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Method</th>
+                <th scope="col" colspan="2" >Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let recipe of Recipe">
+                <td>{{recipe.id}}</td>
+                <td>{{recipe.name}}</td>
+                <td>{{recipe.method}}</td>
+                <td align="center"><input (click)="deleteRecipe(recipe.id)" type="button" value="Delete" class="btn btn-danger"></td>
+                <td align="center"><input class="btn btn-success" [routerLink]="['/edit-mykitchen', recipe.id ]" type="button" value="Edit"></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <!-- End Mykitchen Section -->
+</main>

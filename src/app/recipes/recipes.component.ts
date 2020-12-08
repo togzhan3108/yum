@@ -1,5 +1,4 @@
 import { Component, OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
-
 @Component({
 templateUrl: 'recipes.component.html',
 selector: 'recipes'
